@@ -1,5 +1,6 @@
 package com.xlj.config;
 
+import com.xlj.cache.RedisCacheManager;
 import com.xlj.shiro.realm.CustomerRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.DefaultSecurityManager;
@@ -63,8 +64,19 @@ public class ShiroConfig {
         hashedCredentialsMatcher.setHashAlgorithmName("MD5");
         // 设置散列次数
         hashedCredentialsMatcher.setHashIterations(1024);
-
         customerRealm.setCredentialsMatcher(hashedCredentialsMatcher);
+
+        // 开启缓存管理
+        customerRealm.setCacheManager(new RedisCacheManager());
+        customerRealm.setCachingEnabled(true);  // 开启全局缓存
+        customerRealm.setAuthenticationCachingEnabled(true);    // 开启认证缓存
+        customerRealm.setAuthenticationCacheName("authenticationCache");
+        customerRealm.setAuthorizationCachingEnabled(true); // 开启授权缓存
+        customerRealm.setAuthorizationCacheName("authorizationCache");
+
+
+
+
         return customerRealm;
     }
 

@@ -1,23 +1,25 @@
-package com.xlj.bean;
+package com.xlj.pojo;
+
+import java.io.Serializable;
 
 /**
  * @Author XuLeJun
  * @Date 2020/7/21 19:48
  */
 
-public class Permission {
-    private Integer id;
+public class Permission implements Serializable {
+
+    private String id;
     private String name;
     private String url;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
-
     public String getName() {
         return name;
     }

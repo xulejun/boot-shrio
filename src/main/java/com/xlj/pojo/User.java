@@ -1,10 +1,6 @@
-package com.xlj.bean;
+package com.xlj.pojo;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
-
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -12,12 +8,13 @@ import java.util.List;
  * @Date 2020/7/17 17:59
         */
 
-public class User {
+public class User implements Serializable {
     private String id;
     private String username;
     private String password;
     private String salt;
 
+    // 对应多个角色
     private List<Role> roleList;
 
     public List<Role> getRoleList() {

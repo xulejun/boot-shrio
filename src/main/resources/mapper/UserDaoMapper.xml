@@ -12,25 +12,34 @@
         where username=#{username}
     </select>
 
-
-    <resultMap id="userMap" type="User">
+    <resultMap id="userMap" type="com.xlj.pojo.User">
         <id column="uid" property="id"/>
         <result column="username" property="username"/>
         <!--角色信息-->
-        <collection property="roles" javaType="list" ofType="Role">
+        <collection property="roleList" javaType="list" ofType="com.xlj.pojo.Role">
             <id column="id" property="id"/>
             <result column="rname" property="name"/>
         </collection>
     </resultMap>
 
     <select id="findRoleByUserName" parameterType="string" resultMap="userMap">
-        select u.id uid, u.username, r.id,r.name
+        select u.id uid, u.username, r.id,r.name rname
         from user u
         left join user_role ur
         on u.id=ur.userid
         left join role r
         on ur.roleid=r.id
         where u.username=#{username}
+    </select>
+
+    <select id="findPermissionByRoleId" parameterType="string" resultType="com.xlj.pojo.Permission">
+        select p.id, p.name, p.url, r.name
+        from role r
+        left join  role_permission rp
+        on r.id = rp.roleid
+        left join permission p
+        on rp.permissionid = p.id
+        where r.id = #{id}
     </select>
 
 

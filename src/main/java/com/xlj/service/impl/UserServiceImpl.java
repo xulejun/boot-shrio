@@ -1,7 +1,7 @@
 package com.xlj.service.impl;
 
-import com.xlj.bean.Role;
-import com.xlj.bean.User;
+import com.xlj.pojo.Permission;
+import com.xlj.pojo.User;
 import com.xlj.dao.UserDao;
 import com.xlj.service.UserService;
 import com.xlj.util.SaltUtil;
@@ -41,7 +41,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Role> findRoleByUserName(String username) {
-        return null;
+    public User findRoleByUserName(String username) {
+        return userDao.findRoleByUserName(username);
+    }
+
+    @Override
+    public List<Permission> findPermissionByRoleId(String id) {
+        return userDao.findPermissionByRoleId(id);
     }
 }
