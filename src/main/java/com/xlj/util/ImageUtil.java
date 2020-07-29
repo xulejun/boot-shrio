@@ -118,7 +118,7 @@ public class ImageUtil {
 
     public static void main(String[] args) throws Exception {
         //创建文件输出流对象
-        OutputStream out = new FileOutputStream("d://"+System.currentTimeMillis()+".jpg");
+        OutputStream out = new FileOutputStream("C:\\Users\\Administrator\\Desktop\\"+System.currentTimeMillis()+".jpg");
         Map<String,Object> map = ImageUtil.generateCodeAndPic();
         ImageIO.write((RenderedImage) map.get("codePic"), "jpeg", out);
         System.out.println("验证码的值为："+map.get("code"));

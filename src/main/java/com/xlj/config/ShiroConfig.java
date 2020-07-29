@@ -33,10 +33,10 @@ public class ShiroConfig {
         // 配置系统受限资源 annno
         // 配置系统公共资源 authc
         Map<String, String> map = new HashMap<>();
-        map.put("/register.jsp", "anon");       // anon设置为公共资源
+        map.put("/register.jsp", "anon");       // anon设置为公共资源 , 放行所有页面
         map.put("/user/login", "anon");
         map.put("/user/register", "anon");
-//        map.put("/index", "authc");
+        map.put("/user/getImage", "anon");
         map.put("/**", "authc");           // /**表示所有请求页面都需求认证和授权
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
 //        shiroFilterFactoryBean.setLoginUrl("/login.jsp");     // 默认认证界面路径
