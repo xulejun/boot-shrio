@@ -3,7 +3,6 @@
   User: XLJ
   Date: 2020/7/17
   Time: 14:31
-  To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" import="java.util.*" isELIgnored="false" %>
@@ -19,7 +18,7 @@
     用户名：<input type="text" name="username"> <br>
     密码  ：<input type="text" name="password"> <br>
     请输入验证码：<input type="text" name="code"> &nbsp;
-    <img src="${pageContext.request.contextPath}/user/getImage" alt=""> <br>
+    <img src="${pageContext.request.contextPath}/user/getImage" alt="" onclick="this.src=this.src+'?';"> <br>
     <input type="submit" value="登录">
 </form>
 </body>
