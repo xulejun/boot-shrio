@@ -11,7 +11,7 @@ import java.util.Random;
 
 /**
  * @title 验证码工具类
- * @author boat
+ * @author XLJ
  */
 public class ImageUtil {
 

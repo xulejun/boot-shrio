@@ -16,7 +16,7 @@ import java.util.Map;
 /**
  * @Author XuLeJun
  * @Date 2020/7/17 14:36
- * <p>
+ *
  * 用来整合shiro框架相关的配置类
  */
 
@@ -73,9 +73,6 @@ public class ShiroConfig {
         customerRealm.setAuthenticationCacheName("authenticationCache");
         customerRealm.setAuthorizationCachingEnabled(true); // 开启授权缓存
         customerRealm.setAuthorizationCacheName("authorizationCache");
-
-
-
 
         return customerRealm;
     }

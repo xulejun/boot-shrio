@@ -26,7 +26,6 @@ import java.util.Map;
  * @Date 2020/7/17 15:24
  */
 
-
 @Controller
 @RequestMapping("/user")
 public class UserController {

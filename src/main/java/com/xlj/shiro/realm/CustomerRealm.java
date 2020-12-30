@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * @Author XuLeJun
  * @Date 2020/7/17 14:52
- *
+ * <p>
  * 自定义Realm，可以shiro进入个人mysql数据库中获取数据
  */
 
@@ -46,7 +46,7 @@ public class CustomerRealm extends AuthorizingRealm {
 
                 // 权限信息
                 List<Permission> permissions = userService.findPermissionByRoleId(role.getId());
-                if(!CollectionUtils.isEmpty(permissions)){
+                if (!CollectionUtils.isEmpty(permissions)) {
                     for (Permission permission : permissions) {
                         simpleAuthorizationInfo.addStringPermission(permission.getName());
                     }
@@ -69,8 +69,8 @@ public class CustomerRealm extends AuthorizingRealm {
         UserService userService = (UserService) ApplicationContextUtil.getBean("userService");
         User user = userService.findByUserName(principal);
 
-        if(!ObjectUtils.isEmpty(user)){
-            return  new SimpleAuthenticationInfo(user.getUsername(),user.getPassword(), new SaltBySource(user.getSalt()),this.getName());
+        if (!ObjectUtils.isEmpty(user)) {
+            return new SimpleAuthenticationInfo(user.getUsername(), user.getPassword(), new SaltBySource(user.getSalt()), this.getName());
         }
         return null;
     }

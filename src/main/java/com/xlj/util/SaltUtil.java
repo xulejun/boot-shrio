@@ -1,5 +1,7 @@
 package com.xlj.util;
 
+import org.apache.shiro.crypto.hash.Md5Hash;
+
 import java.util.Random;
 
 /**
@@ -22,6 +24,6 @@ public class SaltUtil {
 
     public static void main(String[] args) {
         String salt = getSalt(4);
-        System.out.println(salt);
+//        System.out.println(salt);
     }
 }
